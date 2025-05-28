@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RosPlat WebApp</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #0e2a47;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .screen {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .active {
+      display: flex;
+    }
+    .button {
+      margin-top: 40px;
+      padding: 12px 24px;
+      border: 2px solid #ffffff;
+      border-radius: 12px;
+      background: transparent;
+      color: #ffffff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .chain {
+      margin-top: 20px;
+      text-align: left;
+      max-width: 320px;
+    }
+    .chain p {
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Экран 0 -->
+  <div class="screen active" id="screen0">
+    <h2>Приветствуем!</h2>
+    <p>Это пошаговое обучение поможет вам быстро и правильно начать работу на RosPlat.</p>
+    <button class="button" onclick="nextScreen(1)">Начать</button>
+  </div>
+
+  <!-- Экран 1 -->
+  <div class="screen" id="screen1">
+    <h2>Как работает RosPlat</h2>
+    <div class="chain">
+      <p>1. Клиент хочет купить услугу или товар в интернете.</p>
+      <p>2. Он оплачивает заказ через платёжную систему.</p>
+      <p>3. Сделка поступает в систему RosPlat.</p>
+      <p>4. RosPlat перенаправляет сделку трейдеру.</p>
+      <p>5. У сделки может быть статус: "Ожидание", "Завершена" или "Архив".</p>
+      <p>6. Автоматика трейдера должна считать SMS или Push-уведомление о поступлении.</p>
+      <p>7. Если поступление есть — сделка закрывается.</p>
+    </div>
+    <button class="button" onclick="alert('Следующий экран пока не реализован')">Дальше</button>
+  </div>
+
+  <script>
+    function nextScreen(n) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById('screen' + n).classList.add('active');
+    }
+  </script>
+</body>
+</html>
